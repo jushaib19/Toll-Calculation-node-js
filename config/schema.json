@@ -1,0 +1,21 @@
+{
+
+    "VEHICLE_SCHEMA": {
+        "title": "Vehicle Entry",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["interchange", "date", "numberPlate"],
+        "properties": {
+            "interchange": {
+                "type": "string",
+                "enum": ["Zero point", "NS Interchange", "Ph4 Interchange", "Ferozpur Interchange","Lake City Interchange","Raiwand Interchange","Bahria Interchange"]
+            },
+            "date": {
+                "type": "string"
+            },
+            "numberPlate": {
+                "type": "string"
+            }
+        }
+    }
+}
