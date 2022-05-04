@@ -11,7 +11,19 @@ module.exports = {
           "VEHICLE_SCHEMA",
           req.body
         );
-  
+
+          let regex = new RegExp(/^[A-Z+]{3}-[0-9+]{3}$/);
+
+          let isValidStr = regex.test(req.body.numberPlate)
+          
+          if (!isValidStr)
+          {
+            let resp = {
+              success: false,
+              message: 'Invalid car number'
+            }
+            return res.status(422).send(resp);
+          }
         if (!validationResponse.success) {
           let resp = {
             success: false,
@@ -35,7 +47,18 @@ module.exports = {
         "VEHICLE_SCHEMA",
         req.body
       );
-
+      
+      let regex = new RegExp(/^[A-Z+]{3}-[0-9+]{3}$/);
+      let isValidStr = regex.test(req.body.numberPlate)
+     
+      if (!isValidStr)
+      {
+        let resp = {
+          success: false,
+          message: 'Invalid car number'
+        }
+        return res.status(422).send(resp);
+      }
       if (!validationResponse.success) {
         console.log("validationResponse is ", validationResponse)
         let resp = {
